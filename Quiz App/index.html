@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cognitive Sanctuary | Interactive Quiz App</title>
+    <meta name="description" content="Master complex subjects with interactive quizzes and smart insights.">
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <a href="#" id="logo-link" style="text-decoration: none;">
+            <div class="logo">
+                <span class="icon-stars"></span>
+                Cognitive Sanctuary
+            </div>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="#" class="active" id="nav-discover">Discover</a></li>
+                <li><a href="#" id="nav-quizzes">My Quizzes</a></li>
+                <li><a href="#" id="nav-leaderboard">Leaderboard</a></li>
+                <li><a href="#" id="nav-create" class="btn-create">+ Create</a></li>
+            </ul>
+        </nav>
+        <div class="header-actions">
+            <button class="icon-btn icon-history" title="History"></button>
+            <button class="icon-btn icon-settings" title="Settings"></button>
+            <img src="https://ui-avatars.com/api/?name=User&background=3b59da&color=fff" alt="Profile" class="profile-img">
+        </div>
+    </header>
+
+    <main id="app-container">
+        <!-- Start Screen -->
+        <section id="start-screen" class="screen active">
+            <div class="quiz-info">
+                <h3>Welcome Back</h3>
+                <h1>Pick Your Challenge</h1>
+            </div>
+            <div class="category-grid" id="category-list">
+                <!-- Categories will be injected here -->
+            </div>
+        </section>
+
+        <!-- Quiz Screen -->
+        <section id="quiz-screen" class="screen">
+            <div class="quiz-top">
+                <div class="quiz-meta">
+                    <div class="quiz-info">
+                        <h3 id="quiz-category">CATEGORY: THEORETICAL PHYSICS</h3>
+                        <h1 id="quiz-title">Quantum Mechanics: The Basics</h1>
+                    </div>
+                    <div class="timer-box">
+                        <div class="timer-icon icon-clock"></div>
+                        <div>
+                            <div class="timer-label">Time Remaining</div>
+                            <div class="timer-value" id="timer">00:15</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="progress-container">
+                    <div class="progress-track">
+                        <div class="progress-bar" id="progress-bar"></div>
+                    </div>
+                    <div class="progress-labels">
+                        <span id="question-index">Question 8 of 12</span>
+                        <span class="percent-complete" id="percent-complete">60% Complete</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="quiz-grid">
+                <div class="question-card">
+                    <span class="tag" id="question-tag">Theoretical Physics</span>
+                    <h2 class="question-text" id="question-text">Which principle states that it is impossible to simultaneously know both the exact position and momentum of a particle?</h2>
+                </div>
+
+                <div class="options-container">
+                    <div class="options-list" id="options-list">
+                        <!-- Options injected here -->
+                        <div class="option">
+                            <div class="option-letter">A</div>
+                            <div class="option-text">Heisenberg Uncertainty</div>
+                            <div class="check-icon icon-check"></div>
+                        </div>
+                    </div>
+
+                    <div class="quiz-actions">
+                        <button class="btn btn-ghost" id="skip-btn">Skip Question</button>
+                        <button class="btn btn-primary" id="submit-btn">Submit Answer</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tip-card" id="tip-card">
+                <div class="tip-icon icon-lightbulb"></div>
+                <div class="tip-content">
+                    <h4>Pro-Tip for this Topic</h4>
+                    <p id="tip-text">Consider the relationship between wave-particle duality and the inherent limitations of measurement at subatomic scales.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Screen -->
+        <section id="results-screen" class="screen">
+            <div class="results-container">
+                <div class="score-hero">
+                    <div class="icon-stars" style="font-size: 2.5rem; color: var(--primary-blue); margin-bottom: 1rem;"></div>
+                    <div class="score-val" id="final-score">8/10</div>
+                    <div class="score-label">Mind Palace Mastered</div>
+                </div>
+
+                <div class="results-grid">
+                    <div class="result-card">
+                        <h3>Performance Insights</h3>
+                        <div class="chart-placeholder" id="results-chart">
+                            <!-- Bars injected here -->
+                        </div>
+                        <div style="margin-top: 1rem; font-size: 0.85rem; display: flex; justify-content: space-between;">
+                            <span><span style="color: var(--primary-blue)">●</span> Accuracy</span>
+                            <span style="color: var(--text-muted)">Top 5% of users</span>
+                        </div>
+                    </div>
+
+                    <div class="result-card" style="display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;">
+                        <div class="timer-icon icon-clock" style="font-size: 2rem; margin-bottom: 1rem;"></div>
+                        <div class="timer-value" id="total-time">04:12</div>
+                        <div class="timer-label">Completion Time</div>
+                    </div>
+                </div>
+
+                <div class="results-footer">
+                    <div class="result-mini-card">
+                        <div class="icon-lightbulb" style="color: #0891b2;"></div>
+                        <div style="font-weight: 700;">Core Strength</div>
+                        <div style="font-size: 0.8rem; color: var(--text-muted);">Abstract Reasoning</div>
+                    </div>
+                    <div class="result-mini-card">
+                        <div class="icon-target" style="color: #e11d48;"></div>
+                        <div style="font-weight: 700;">Focus Area</div>
+                        <div style="font-size: 0.8rem; color: var(--text-muted);">Spatial Awareness</div>
+                    </div>
+                    <div class="result-mini-card">
+                        <div class="icon-stars" style="color: #4f46e5;"></div>
+                        <div style="font-weight: 700;">New Achievement</div>
+                        <div style="font-size: 0.8rem; color: var(--text-muted);">Streak: 7 Days</div>
+                    </div>
+                </div>
+
+                <div class="quiz-actions" style="margin-top: 3rem; justify-content: center; gap: 1.5rem;">
+                    <button class="btn btn-primary" id="restart-btn" style="flex: 1; max-width: 300px;">Restart Quiz</button>
+                    <button class="btn btn-ghost" style="flex: 1; max-width: 300px;">Share Results</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- My Quizzes Screen -->
+        <section id="my-quizzes-screen" class="screen">
+            <div class="quiz-info">
+                <h3>Your Achievements</h3>
+                <h1>My Quizzes</h1>
+            </div>
+            <div class="category-grid" id="history-list">
+                <!-- History items injected here -->
+                <div class="empty-state">
+                    <p>No quizzes completed yet. Start your first challenge!</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leaderboard Screen -->
+        <section id="leaderboard-screen" class="screen">
+            <div class="quiz-info">
+                <h3>Global Standings</h3>
+                <h1>Leaderboard</h1>
+            </div>
+            <div class="leaderboard-card">
+                <table class="leaderboard-table">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>User</th>
+                            <th>Subject</th>
+                            <th>Score</th>
+                            <th>Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="leaderboard-body">
+                        <!-- Mock data or real data injected here -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Create Quiz Screen -->
+        <section id="create-quiz-screen" class="screen">
+            <div class="quiz-info">
+                <h3>Quiz Builder</h3>
+                <h1>Create New Quiz</h1>
+            </div>
+
+            <div class="create-grid">
+                <!-- Analysis Section -->
+                <div class="create-card">
+                    <div class="card-header">
+                        <div class="icon-lightbulb" style="color: #0891b2;"></div>
+                        <div>
+                            <h3>AI Assistant</h3>
+                            <p style="font-size: 0.8rem; color: var(--text-muted);">Paste study material or notes to generate questions</p>
+                        </div>
+                    </div>
+                    <textarea id="study-material" placeholder="Paste your article, notes, or research paper here..."></textarea>
+                    <button class="btn btn-primary" id="process-material-btn" style="width: 100%;">
+                        <span>✨ Analyze & Generate</span>
+                    </button>
+                    <div id="processing-status" style="margin-top: 1rem; font-size: 0.8rem; display: none;">
+                        <span class="spinner"></span> Analyzing content and extracting key concepts...
+                    </div>
+                </div>
+
+                <!-- Manual Builder Section -->
+                <div class="create-card">
+                    <div class="card-header">
+                        <div class="icon-stars" style="color: var(--primary-blue);"></div>
+                        <h3>Quiz Details</h3>
+                    </div>
+                    <div class="input-group">
+                        <label>Quiz Title</label>
+                        <input type="text" id="new-quiz-title" placeholder="e.g. History of Rome">
+                    </div>
+                    <div class="input-group">
+                        <label>Category</label>
+                        <select id="new-quiz-category">
+                            <option value="General">General</option>
+                            <option value="Theoretical Physics">Physics</option>
+                            <option value="Pure Mathematics">Mathematics</option>
+                            <option value="Biological Sciences">Biology</option>
+                            <option value="History">History</option>
+                            <option value="Literature">Literature</option>
+                        </select>
+                    </div>
+
+                    <div id="questions-builder">
+                        <!-- Dynamic question forms will appear here -->
+                    </div>
+
+                    <button class="btn btn-ghost" id="add-question-btn" style="width: 100%; margin-top: 1rem;">+ Add Question</button>
+                    
+                    <div class="quiz-actions" style="margin-top: 2rem; border-top: 1px solid var(--accent-purple); padding-top: 1.5rem;">
+                        <button class="btn btn-primary" id="save-quiz-btn" style="width: 100%;">Save Quiz & Start</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div class="bottom-nav">
+        <div class="icon-btn">🧭</div>
+        <div class="icon-btn" style="color: var(--primary-blue)">📝</div>
+        <div class="icon-btn">📊</div>
+        <div class="icon-btn">👤</div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
